@@ -1,12 +1,12 @@
-const gokEntries = () => {
+const reviveEntries = () => {
     let entries = localStorage.getItem("user-Entries");
     return entries ? JSON.parse(entries) : [];
   };
  
-  let userEntries = gokEntries();
+  let userEntries = rajEntries();
  
-  const ulEntries = () => {
-    const entries = gokEntries();
+  const arEntries = () => {
+    const entries = rajEntries();
  
     const tableEntries = entries
         .map(
@@ -38,7 +38,7 @@ const gokEntries = () => {
     const acceptedTermsAndConditions = document.getElementById("Accepted term").checked;
  
     const entry = {
-        username,
+        name,
         email,
         password,
         dob,
@@ -47,11 +47,11 @@ const gokEntries = () => {
  
     userEntries.push(entry);
     localStorage.setItem("user-Entries", JSON.stringify(userEntries));
-    ulEntries();
+    arEntries();
     userForm.reset();
   };
  
   let userForm = document.getElementById("form");
   userForm.addEventListener("submit", uploadForm);
  
-  ulEntries();
+  arEntries();
