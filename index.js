@@ -1,13 +1,13 @@
-const reviveEntries = () => {
+const BOYSEntries = () => {
     let entries = localStorage.getItem("user-Entries");
     return entries ? JSON.parse(entries) : [];
   };
- 
-  let userEntries = rajEntries();
- 
-  const arEntries = () => {
-    const entries = rajEntries();
- 
+  
+  let userEntries = BOYSEntries();
+  
+  const GIRLSEntries = () => {
+    const entries = BOYSEntries();
+  
     const tableEntries = entries
         .map(
             (entry) => `<tr>
@@ -19,16 +19,16 @@ const reviveEntries = () => {
             </tr>`
         )
         .join("\n");
- 
+  
     const table = `<table>
-       
+        
         <tbody>${tableEntries}</tbody>
     </table>`;
- 
+  
     let details = document.getElementById("user-entries");
     details.innerHTML = table;
   };
- 
+  
   const uploadForm = (event) => {
     event.preventDefault();
     const name = document.getElementById("name").value;
@@ -36,7 +36,7 @@ const reviveEntries = () => {
     const password = document.getElementById("password").value;
     const dob = document.getElementById("dob").value;
     const acceptedTermsAndConditions = document.getElementById("Accepted term").checked;
- 
+  
     const entry = {
         name,
         email,
@@ -44,14 +44,14 @@ const reviveEntries = () => {
         dob,
         acceptedTermsAndConditions,
     };
- 
+  
     userEntries.push(entry);
     localStorage.setItem("user-Entries", JSON.stringify(userEntries));
-    arEntries();
+    GIRLSEntries();
     userForm.reset();
   };
- 
+  
   let userForm = document.getElementById("form");
   userForm.addEventListener("submit", uploadForm);
- 
-  arEntries();
+  
+  GIRLSEntries();
