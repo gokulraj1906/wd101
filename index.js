@@ -1,4 +1,4 @@
-const BOYSEntries = () => {
+const BOYSEntries = () => { 
     let entries = localStorage.getItem("user-Entries");
     return entries ? JSON.parse(entries) : [];
   };
