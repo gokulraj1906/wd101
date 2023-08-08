@@ -1,17 +1,17 @@
-const reviveEntries = () => {
+const gokEntries = () => {
     let entries = localStorage.getItem("user-Entries");
     return entries ? JSON.parse(entries) : [];
   };
  
-  let userEntries = reviveEntries();
+  let userEntries = gokEntries();
  
-  const printEntries = () => {
-    const entries = reviveEntries();
+  const ulEntries = () => {
+    const entries = gokEntries();
  
     const tableEntries = entries
         .map(
             (entry) => `<tr>
-                <td style = "padding: 2px 4px">${entry.username}</td>
+                <td style = "padding: 2px 4px">${entry.name}</td>
                 <td style = "padding: 2px 4px">${entry.email}</td>
                 <td style = "padding: 2px 4px">${entry.password}</td>
                 <td style = "padding: 2px 4px">${entry.dob}</td>
@@ -31,7 +31,7 @@ const reviveEntries = () => {
  
   const uploadForm = (event) => {
     event.preventDefault();
-    const username = document.getElementById("username").value;
+    const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const dob = document.getElementById("dob").value;
@@ -47,11 +47,11 @@ const reviveEntries = () => {
  
     userEntries.push(entry);
     localStorage.setItem("user-Entries", JSON.stringify(userEntries));
-    printEntries();
+    ulEntries();
     userForm.reset();
   };
  
   let userForm = document.getElementById("form");
   userForm.addEventListener("submit", uploadForm);
  
-  printEntries();
+  ulEntries();
